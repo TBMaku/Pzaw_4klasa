@@ -5,7 +5,7 @@ import Track from "./assets/Tracks";
 
 function App(){
   return(
-    <div>
+    <div style={{display:"grid", justifyContent:"center"}}>
       <Film plakat="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT-uHoOK3etiltlenXnoR-o9_lQ4TGlhOS7Nu0xDVrMsWYtl2Uj" tytul="Dead Poets Society" rok={1989}/>
       <Film plakat="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbWq4HMD2ENjDbotFCBo6I4QDWbsUJht6kUFNRjWk8zax_ndvTwJYQ3MywVSLZOL7Rt0Ni&s=10" tytul="Perks of being a Wallflower" rok={2012}/>
       <Film plakat="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG4ngcb251BWcV9EGK9UK3iDsI1cefjllocQjRkJExV9v_MW7FIScJkWYVzlovKTronoAu7g&s=10" tytul="Good Will Hunting" rok={1997}/>

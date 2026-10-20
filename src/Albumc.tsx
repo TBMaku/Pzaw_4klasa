@@ -10,8 +10,8 @@ function Album(props: any){
   const {tytul, plakat, rok, gatunek, zespol} = props;
 
   return(
-    <div>
-        <img src={plakat} />
+    <div style={{ width: "33%"}}>
+        <img src={plakat} style={{ width: "20vw" }} />
         <p>{tytul}</p>
         <p>{zespol}</p>
         <p>{rok}</p>

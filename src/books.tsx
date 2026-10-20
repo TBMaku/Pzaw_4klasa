@@ -9,8 +9,8 @@ function Book(props: any){
   const {tytul, plakat, rok, liczbastron} = props;
 
   return(
-    <div>
-        <img src={plakat} />
+    <div style={{ width: "33%" }}>
+        <img src={plakat} style={{ width: "20vw" }}/>
         <p>{tytul}</p>
         <p>{rok}</p>
         <p>{liczbastron}</p>
