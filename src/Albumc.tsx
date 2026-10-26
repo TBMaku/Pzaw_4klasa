@@ -1,12 +1,12 @@
-interface props{
+interface AlbumProps{
     plakat:string;
     tytul:string;
     rok:number;
     zespol:string;
-    gatunek:string
+    gatunek:string;
 }
 
-function Album(props: any){
+function Album(props: AlbumProps){
   const {tytul, plakat, rok, gatunek, zespol} = props;
 
   return(
@@ -22,7 +22,7 @@ function Album(props: any){
           <th>Tytuł</th>
           <th>Czas trwania</th>
         </thead>
-        <tbody>{props.children}</tbody>
+        {/* <tbody>{props.children}</tbody> */}
       </table>
     </div>
   );

@@ -1,11 +1,11 @@
-interface props{
+interface BookProps{
     plakat:string;
     tytul:string;
     rok:number;
     liczbastron:number;
 }
 
-function Book(props: any){
+function Book(props: BookProps){
   const {tytul, plakat, rok, liczbastron} = props;
 
   return(

@@ -1,6 +1,6 @@
 import Film from "./Greeter";
-// import Book from "./books";
-// import Album from "./Albumc";
+import Book from "./books";
+import Album from "./Albumc";
 // import Track from "./assets/Tracks";
 
 interface FilmProps{
@@ -9,23 +9,73 @@ interface FilmProps{
     rok:number;
 }
 
-const films:FilmProps[] = [
+interface BookProps{
+    plakat:string;
+    tytul:string;
+    rok:number;
+    liczbastron:number;
+}
+
+interface AlbumProps{
+    plakat:string;
+    tytul:string;
+    rok:number;
+    zespol:string;
+    gatunek:string
+}
+
+// interface TrackProps{
+//     index:number;
+//     title:string;
+//     time:number;
+// }
+
+const movies:FilmProps[] = [
       { plakat: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT-uHoOK3etiltlenXnoR-o9_lQ4TGlhOS7Nu0xDVrMsWYtl2Uj", tytul: "Dead Poets Society", rok: 1989 },
       { plakat: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbWq4HMD2ENjDbotFCBo6I4QDWbsUJht6kUFNRjWk8zax_ndvTwJYQ3MywVSLZOL7Rt0Ni&s=10", tytul: "Perks of being a Wallflower", rok: 2012 },
       { plakat: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG4ngcb251BWcV9EGK9UK3iDsI1cefjllocQjRkJExV9v_MW7FIScJkWYVzlovKTronoAu7g&s=10", tytul: "Good Will Hunting", rok: 1997 }
     ];
 
+const books:BookProps[] = [
+      { plakat: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRULwfFk7tx5KPh7hoYIQkL14Sdx0CZN-ZzkQRmdG-NZpN7WK8c5V2OSJAmCUQSLI7bJwMdwHjfMdMJ523S0bXFDJ_E5ysRIQRYnBAxskw&s=10", tytul: "Dead Poets Society", rok: 1989, liczbastron: 176 },
+      { plakat: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781398530003/the-perks-of-being-a-wallflower-ya-edition-9781398530003_hr.jpg", tytul: "Perks of being a Wallflower", rok: 1999, liczbastron: 224 },
+      { plakat: "https://cdn.swiatksiazki.pl/media/catalog/product/8/2/8299906367582.jpg?width=650&height=650&store=default&image-type=small_image", tytul: "Wiedzmin Ostatnie Życzenie", rok: 1993, liczbastron: 332 }
+    ];
+
+// const tracks:TrackProps[] = [
+//       { index: 1, title: "Foreword", time: 0.13 },
+//       { index: 2, title: "Don't Stay", time: 3.07 }
+//     ];
+    
+const albums:AlbumProps[] = [
+      { plakat: "https://upload.wikimedia.org/wikipedia/en/0/0c/Linkin_Park_Meteora_Album_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original", tytul: "Meteora", zespol: "Linkin Park", gatunek: "Nu Metal", rok: 2003 },
+      { plakat: "https://i.scdn.co/image/ab67616d0000b27354b1b310f66b4d887750a32f", tytul: "Kalejdoskop", zespol: "Wyjdzie w Praniu", gatunek: "Garage rock", rok: 2026 }
+    ];
 
 function App(){
-const cards = films.map((film) => (<Film
+const cards = movies.map((film) => (<Film
         plakat={film.plakat}
         tytul={film.tytul}
         rok={film.rok}
     />));
-  
+
+const bookCards = books.map((book) => (<Book
+        plakat={book.plakat}
+        tytul={book.tytul}
+        rok={book.rok}
+        liczbastron={book.liczbastron}
+    />));
+
+const albumCards = albums.map((album) => (<Album
+        plakat={album.plakat}
+        tytul={album.tytul}
+        zespol={album.zespol}
+        gatunek={album.gatunek}
+        rok={album.rok}
+    />));
 
  return(
-      <main>{cards}</main>
+      <main>{cards} {bookCards} {albumCards}</main>
 
       // <Book plakat="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRULwfFk7tx5KPh7hoYIQkL14Sdx0CZN-ZzkQRmdG-NZpN7WK8c5V2OSJAmCUQSLI7bJwMdwHjfMdMJ523S0bXFDJ_E5ysRIQRYnBAxskw&s=10" tytul="Dead Poets Society" rok={1989} liczbastron={176}/>
       // <Book plakat="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781398530003/the-perks-of-being-a-wallflower-ya-edition-9781398530003_hr.jpg" tytul="Perks of being a Wallflower" rok={1999} liczbastron={224}/>
