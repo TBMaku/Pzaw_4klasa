@@ -1,10 +1,10 @@
-interface props{
+interface FilmProps{
     plakat:string;
     tytul:string;
     rok:number;
 }
 
-function Film(props: any){
+function Film(props: FilmProps){
   const {tytul, plakat, rok} = props;
 
   return(
