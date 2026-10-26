@@ -15,12 +15,16 @@ function Book(props: BookProps){
   const {tytul, plakat, rok, liczbastron} = props;
 
   return(
-    <div style={{ width: "33%" }}>
+    <div className="col-12 col-sm-6 col-lg-4 d-flex">
+      <div className="card w-100">
         {JestKlasykiem(rok)}
-        <img src={plakat} style={{ width: "20vw" }}/>
-        <p>{tytul}</p>
-        <p>{rok}</p>
-        <p>{liczbastron}</p>
+        <img src={plakat} className="card-img-top"/>
+        <div className="card-body">
+            <p className="card-title">{tytul}</p>
+            <p className="card-text">{rok}</p>
+            <p className="card-text">{liczbastron}</p>
+        </div>
+      </div>
     </div>
   );
 }

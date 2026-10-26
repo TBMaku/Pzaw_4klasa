@@ -2,7 +2,7 @@ import Film from "./Greeter";
 import Book from "./books";
 import Album from "./Albumc";
 import Track from "./assets/Tracks";
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 interface FilmProps{
     plakat:string;
@@ -126,39 +126,40 @@ const SortedBooks = books.sort((a, b) => b.rok - a.rok).map((book) => (<Book
 // const LongestAlbum = albums.
 
  return ( 
- <main>
-    <div>
+<body className="bg-dark text-light min-vh-100 py-4" data-bs-theme="dark">
+    <main className="container">
+    <section className="mb-5">
       <h1 onClick={() => setIsVisible(!isVisible)}>
         {isVisible ? "Ukryj filmy⏷" : "Pokaż filmy⏵"}
       </h1>
-      {isVisible && <p>{cards}</p>}
-    </div>
-    <div>
+      {isVisible && <div className="row g-4">{cards}</div>}
+    </section>
+    <section className="mb-5">
       <h1 onClick={() => setShowFirst(!showFirst)}>
         {showFirst ? "Ukryj książki⏷" : "Pokaż książki⏵"}
       </h1>
-      {showFirst && <p>{bookCards}</p>}
-    </div>
-    <div>
+      {showFirst && <div className="row g-4">{bookCards}</div>}
+    </section>
+    <section className="mb-5">
       <h1 onClick={() => setShowSecond(!showSecond)}>
         {showSecond ? "Ukryj albumy⏷" : "Pokaż albumy⏵"}
       </h1>
-      {showSecond && <p>{albumCards}</p>}
-    </div>
-    <div>
+      {showSecond && <div className="row g-4">{albumCards}</div>}
+    </section>
+    <section className="mb-5">
       <h1 onClick={() => setShowThird(!showThird)}>
         {showThird ? "Ukryj nowe filmy⏷" : "Pokaż nowe filmy⏵"}
       </h1>
-      {showThird && <p>{NewMovies}</p>}
-    </div>
-    <div>
+      {showThird && <div className="row g-4">{NewMovies}</div>}
+    </section>
+    <section className="mb-5">
       <h1 onClick={() => setShowFourth(!showFourth)}>
         {showFourth ? "Ukryj posortowane książki⏷" : "Pokaż posortowane książki⏵"}
       </h1>
-      {showFourth && <p>{SortedBooks}</p>}
-    </div>
+      {showFourth && <div className="row g-4">{SortedBooks}</div>}
+    </section>
   </main>
-
+</body>
   );
 };
 

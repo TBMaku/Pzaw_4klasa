@@ -11,7 +11,7 @@ function Track(props: TrackProps){
     <tr>
       <td>{index}</td>
       <td>{title}</td>
-      <td>{time}</td>
+      <td className="text-end">{time}</td>
     </tr>
   );
 }

@@ -12,7 +12,7 @@ interface AlbumProps{
 
 function JestPusty(children:ReactNode){
   if(!children){
-    return <p style={{ color: "red" }}>brak utworów</p>;
+    return <div  className="alert alert-warning" role="alert">brak utworów</div>;
   }
   return null;
 }
@@ -21,23 +21,27 @@ function Album(props: AlbumProps){
   const {tytul, plakat, rok, gatunek, zespol} = props;
 
   return(
-    <div style={{ width: "33%"}}>
-        {JestPusty(props.children)}
-        <img src={plakat} style={{ width: "20vw" }} />
-        <p>{tytul}</p>
-        <p>{zespol}</p>
-        <p>{rok}</p>
-        <p>{gatunek}</p>
-        <table style={{ width: "100%" }}>
+    <div className="col-12 col-sm-6 col-lg-4 d-flex">
+      <div className="card w-100">
+       {JestPusty(props.children)}
+        <img src={plakat} className="card-img-top"/>
+        <div className="card-body">
+            <p className="card-title">{tytul}</p>
+            <p className="card-text">{zespol}</p>
+            <p className="card-text">{rok}</p>
+            <p className="card-text">{gatunek}</p>
+        </div>
+        <table className="table table-dark table-striped table-hover">
         <thead>
           <tr>
-            <th>L.p.</th>
-            <th>Tytuł</th>
-            <th>Czas trwania</th>
+            <th scope="col">L.p.</th>
+            <th scope="col">Tytuł</th>
+            <th scope="col" className="text-end">Czas trwania</th>
           </tr>
         </thead>
         <tbody>{props.children}</tbody>
       </table>
+    </div>
     </div>
   );
 }
