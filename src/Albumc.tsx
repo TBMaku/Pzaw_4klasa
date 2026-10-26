@@ -10,11 +10,19 @@ interface AlbumProps{
     children:ReactNode;
 }
 
+function JestPusty(children:ReactNode){
+  if(!children){
+    return <p style={{ color: "red" }}>brak utworów</p>;
+  }
+  return null;
+}
+
 function Album(props: AlbumProps){
   const {tytul, plakat, rok, gatunek, zespol} = props;
 
   return(
     <div style={{ width: "33%"}}>
+        {JestPusty(props.children)}
         <img src={plakat} style={{ width: "20vw" }} />
         <p>{tytul}</p>
         <p>{zespol}</p>
