@@ -7,6 +7,7 @@ interface FilmProps{
     plakat:string;
     tytul:string;
     rok:number;
+    rating:number;
 }
 
 interface BookProps{
@@ -31,9 +32,9 @@ interface AlbumProps{
 // }
 
 const movies:FilmProps[] = [
-      { plakat: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT-uHoOK3etiltlenXnoR-o9_lQ4TGlhOS7Nu0xDVrMsWYtl2Uj", tytul: "Dead Poets Society", rok: 1989 },
-      { plakat: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbWq4HMD2ENjDbotFCBo6I4QDWbsUJht6kUFNRjWk8zax_ndvTwJYQ3MywVSLZOL7Rt0Ni&s=10", tytul: "Perks of being a Wallflower", rok: 2012 },
-      { plakat: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG4ngcb251BWcV9EGK9UK3iDsI1cefjllocQjRkJExV9v_MW7FIScJkWYVzlovKTronoAu7g&s=10", tytul: "Good Will Hunting", rok: 1997 }
+        { plakat: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbWq4HMD2ENjDbotFCBo6I4QDWbsUJht6kUFNRjWk8zax_ndvTwJYQ3MywVSLZOL7Rt0Ni&s=10", tytul: "Perks of being a Wallflower", rok: 2012, rating: 8.5 },
+        { plakat: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT-uHoOK3etiltlenXnoR-o9_lQ4TGlhOS7Nu0xDVrMsWYtl2Uj", tytul: "Dead Poets Society", rok: 1989, rating: 9.5 },
+        { plakat: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG4ngcb251BWcV9EGK9UK3iDsI1cefjllocQjRkJExV9v_MW7FIScJkWYVzlovKTronoAu7g&s=10", tytul: "Good Will Hunting", rok: 1997, rating: 9.0 }
     ];
 
 const books:BookProps[] = [
@@ -53,10 +54,12 @@ const albums:AlbumProps[] = [
     ];
 
 function App(){
-const cards = movies.map((film) => (<Film
+const cards = 
+        movies.sort((a, b) => a.tytul.localeCompare(b.tytul)).map((film) => (<Film
         plakat={film.plakat}
         tytul={film.tytul}
         rok={film.rok}
+        rating={film.rating}
     />));
 
 const bookCards = books.map((book) => (<Book
@@ -73,6 +76,7 @@ const albumCards = albums.map((album) => (<Album
         gatunek={album.gatunek}
         rok={album.rok}
     />));
+
 
  return(
       <main>{cards} {bookCards} {albumCards}</main>
