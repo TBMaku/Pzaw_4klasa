@@ -1,9 +1,13 @@
+
+import type { ReactNode } from "react";
+
 interface AlbumProps{
     plakat:string;
     tytul:string;
     rok:number;
     zespol:string;
     gatunek:string;
+    children:ReactNode;
 }
 
 function Album(props: AlbumProps){
@@ -18,11 +22,13 @@ function Album(props: AlbumProps){
         <p>{gatunek}</p>
         <table style={{ width: "100%" }}>
         <thead>
-          <th>L.p.</th>
-          <th>Tytuł</th>
-          <th>Czas trwania</th>
+          <tr>
+            <th>L.p.</th>
+            <th>Tytuł</th>
+            <th>Czas trwania</th>
+          </tr>
         </thead>
-        {/* <tbody>{props.children}</tbody> */}
+        <tbody>{props.children}</tbody>
       </table>
     </div>
   );
