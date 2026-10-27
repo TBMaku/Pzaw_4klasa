@@ -17,6 +17,7 @@ function JestPusty(children:ReactNode){
   return null;
 }
 
+
 function Album(props: AlbumProps){
   const {tytul, plakat, rok, gatunek, zespol} = props;
 
