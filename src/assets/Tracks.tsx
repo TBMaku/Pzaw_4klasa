@@ -1,24 +1,18 @@
-import React from "react";
-import Album from "../Albumc";
-
-interface TrackProps{
-    index:number;
-    title:string;
-    time:number;
+interface TrackProps {
+  index: number;
+  title: string;
+  time: number;
+  albumTitle?: string;
 }
 
-handleSongClick = (event: React.MouseEvent<HTMLElement>) => {
-  alert("Wybrałeś " + event.currentTarget.textContent + " z albumu " + );
-}
-
-function Track(props: TrackProps){
-  const {index, title, time} = props;
+function Track(props: TrackProps) {
+  const { index, title, time, albumTitle } = props;
 
   return (
-    <tr>
+    <tr onClick={() => alert(`Wybrano utwór: ${title} z ${albumTitle}`)}>
       <td>{index}</td>
       <td>{title}</td>
-      <td className="text-end" >{time}</td>
+      <td className="text-end">{time}</td>
     </tr>
   );
 }

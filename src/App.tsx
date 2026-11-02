@@ -105,7 +105,7 @@ const albumCards = albums.map((album) => (<Album
         gatunek={album.gatunek}
         rok={album.rok}>
         {album.tracks.map((track) => (
-            <Track index={track.index} title={track.title} time={track.time} />
+            <Track index={track.index} title={track.title} time={track.time} albumTitle={album.tytul}/>
         ))}
     </Album>));
 
@@ -123,7 +123,6 @@ const SortedBooks = books.sort((a, b) => b.rok - a.rok).map((book) => (<Book
         liczbastron={book.liczbastron}
     />));
 
-// const LongestAlbum = albums.
 
  return ( 
 <body className="bg-dark text-light min-vh-100 py-4" data-bs-theme="dark">
