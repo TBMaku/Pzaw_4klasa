@@ -2,7 +2,7 @@ interface TrackProps {
   index: number;
   title: string;
   time: number;
-  albumTitle?: string;
+  albumTitle: string;
 }
 
 function Track(props: TrackProps) {
