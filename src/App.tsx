@@ -87,7 +87,7 @@ const [bookSearch, setBookSearch] = useState("");
 const [albumSearch, setAlbumSearch] = useState("");
 
 const cards =
-        [...movies].sort((a, b) => a.tytul.localeCompare(b.tytul)).map((film) => (<Film
+        movies.filter((film) => film.tytul.toLowerCase().includes(movieSearch.toLowerCase())).sort((a, b) => a.tytul.localeCompare(b.tytul)).map((film) => (<Film
         plakat={film.plakat}
         tytul={film.tytul}
         rok={film.rok}
@@ -137,7 +137,7 @@ const SortedBooks = [...books].sort((a, b) => b.rok - a.rok).map((book) => (<Boo
       <h1 onClick={() => setIsVisible(!isVisible)}>
         {isVisible ? "Ukryj filmy⏷" : "Pokaż filmy⏵"}
       </h1>
-      {isVisible && <div className="row g-4">{cards}</div>}
+      {isVisible && <div className="row g-4">{cards.length === 0 ? <p>Nie znaleziono filmów</p> : cards}</div>}
     </section>
     <section className="mb-5">
       <input id="book-search" type="text" className="form-control mb-2" placeholder="Wpisz tytuł" value={bookSearch} onChange={(event) => setBookSearch(event.target.value)} />
