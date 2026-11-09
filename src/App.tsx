@@ -2,7 +2,7 @@ import Film from "./Greeter";
 import Book from "./books";
 import Album from "./Albumc";
 import Track from "./assets/Tracks";
-import { useState } from 'react'
+import { useState } from 'react';
 
 interface FilmProps{
     plakat:string;
@@ -82,14 +82,12 @@ const [showFirst, setShowFirst] = useState(true)
 const [showSecond, setShowSecond] = useState(true)
 const [showThird, setShowThird] = useState(true)
 const [showFourth, setShowFourth] = useState(true)
+const [movieSearch, setMovieSearch] = useState("");
+const [bookSearch, setBookSearch] = useState("");
+const [albumSearch, setAlbumSearch] = useState("");
 
-//  const [movieSearch, setMovieSearch] = useState("");
-// const [bookSearch, setBookSearch] = useState("");
-// const [albumSearch, setAlbumSearch] = useState("");
-
-
-const cards = 
-        movies.sort((a, b) => a.tytul.localeCompare(b.tytul)).map((film) => (<Film
+const cards =
+        [...movies].sort((a, b) => a.tytul.localeCompare(b.tytul)).map((film) => (<Film
         plakat={film.plakat}
         tytul={film.tytul}
         rok={film.rok}
@@ -121,7 +119,7 @@ const NewMovies = movies.filter((film) => film.rok > 2010).map((film) => (<Film
         rating={film.rating}
     />));
 
-const SortedBooks = books.sort((a, b) => b.rok - a.rok).map((book) => (<Book
+const SortedBooks = [...books].sort((a, b) => b.rok - a.rok).map((book) => (<Book
         plakat={book.plakat}
         tytul={book.tytul}
         rok={book.rok}
@@ -130,16 +128,11 @@ const SortedBooks = books.sort((a, b) => b.rok - a.rok).map((book) => (<Book
 
 
  return ( 
-<body className="bg-dark text-light min-vh-100 py-4" data-bs-theme="dark">
+<div className="bg-dark text-light min-vh-100 py-4" data-bs-theme="dark">
     <main className="container">
     <section className="mb-5">
-              {/* <input id="movie-search" type="text" className="form-control mb-2" placeholder="Wpisz tytuł" value={movieSearch} onChange={(e) => {
-                const value = e.target.value;
-                setMovieSearch(value);
-                console.log("movie-search:", value);
-            }}
-          />
-      <div className="text-muted">Wpisano: {movieSearch}</div> */}
+      <input id="movie-search" type="text" className="form-control mb-2" placeholder="Wpisz tytuł" value={movieSearch} onChange={(event) => setMovieSearch(event.target.value)} />
+      <div className="text-muted">Wpisano: {movieSearch}</div>
 
       <h1 onClick={() => setIsVisible(!isVisible)}>
         {isVisible ? "Ukryj filmy⏷" : "Pokaż filmy⏵"}
@@ -147,13 +140,8 @@ const SortedBooks = books.sort((a, b) => b.rok - a.rok).map((book) => (<Book
       {isVisible && <div className="row g-4">{cards}</div>}
     </section>
     <section className="mb-5">
-      {/* <input id="book-search" type="text" className="form-control mb-2" placeholder="Wpisz tytuł" value={bookSearch} onChange={(e) => {
-                const value = e.target.value;
-                setBookSearch(value);
-                console.log("book-search:", value);
-            }}
-          /> */}
-      {/* <div className="text-muted">Wpisano: {bookSearch}</div> */}
+      <input id="book-search" type="text" className="form-control mb-2" placeholder="Wpisz tytuł" value={bookSearch} onChange={(event) => setBookSearch(event.target.value)} />
+      <div className="text-muted">Wpisano: {bookSearch}</div>
 
       <h1 onClick={() => setShowFirst(!showFirst)}>
         {showFirst ? "Ukryj książki⏷" : "Pokaż książki⏵"}
@@ -161,12 +149,8 @@ const SortedBooks = books.sort((a, b) => b.rok - a.rok).map((book) => (<Book
       {showFirst && <div className="row g-4">{bookCards}</div>}
     </section>
     <section className="mb-5">
-      {/* <input id="album-search" type="text" className="form-control mb-2" placeholder="Wpisz tytuł" value={albumSearch} onChange={(e) => {
-                setAlbumSearch(e.target.value);
-                console.log("album-search:", e.target.value);
-            }}
-          />
-      <div className="text-muted">Wpisano: {albumSearch}</div> */}
+      <input id="album-search" type="text" className="form-control mb-2" placeholder="Wpisz tytuł" value={albumSearch} onChange={(event) => setAlbumSearch(event.target.value)} />
+      <div className="text-muted">Wpisano: {albumSearch}</div>
 
       <h1 onClick={() => setShowSecond(!showSecond)}>
         {showSecond ? "Ukryj albumy⏷" : "Pokaż albumy⏵"}
@@ -186,8 +170,8 @@ const SortedBooks = books.sort((a, b) => b.rok - a.rok).map((book) => (<Book
       {showFourth && <div className="row g-4">{SortedBooks}</div>}
     </section>
   </main>
-</body>
+</div>
   );
 };
 
-export default App 
+export default App
